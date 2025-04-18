@@ -1,0 +1,40 @@
+{
+  "name": "blueprint-nodejs-prisma-cli-docker",
+  "version": "1.0.0",
+  "description": "Blueprint with NodeJS - Prisma - CLI - Docker",
+  "main": "dist/index.js",
+  "bin": {
+    "blueprint": "./dist/index.js"
+  },
+  "type": "module",
+  "scripts": {
+    "build": "npx tsc",
+    "start": "node dist/index.js",
+    "generate": "npx prisma generate",
+    "migrate": "npx prisma migrate deploy",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mlieshoff/blueprint-nodejs-prisma-cli-docker.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mlieshoff/blueprint-nodejs-prisma-cli-docker/issues"
+  },
+  "homepage": "https://github.com/mlieshoff/blueprint-nodejs-prisma-cli-docker#readme",
+  "dependencies": {
+    "@prisma/client": "^6.6.0",
+    "chalk": "^5.4.1",
+    "commander": "^13.1.0",
+    "figlet": "^1.8.1"
+  },
+  "devDependencies": {
+    "@types/figlet": "^1.7.0",
+    "@types/node": "^22.14.1",
+    "prisma": "^6.6.0",
+    "typescript": "^5.8.3"
+  }
+}
