@@ -139,3 +139,7 @@ generated
 
 # idea
 .idea
+
+# virtualenv
+env
+nodeenv
