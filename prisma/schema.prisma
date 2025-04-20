@@ -1,0 +1,41 @@
+generator client {
+  provider = "prisma-client-js"
+  output   = "../node_modules/.prisma/client"
+}
+
+datasource db {
+  provider = "postgres"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        BigInt         @id @default(autoincrement())
+  firstname String         @db.VarChar(255)
+  lastname  String         @db.VarChar(255)
+  job       String         @db.VarChar(255)
+  createdAt DateTime       @default(now())
+  updatedAt DateTime       @updatedAt
+  history   User_History[]
+}
+
+model User_History {
+  id         BigInt   @id @default(autoincrement())
+  entity_id BigInt
+  firstname  String   @db.VarChar(255)
+  lastname   String   @db.VarChar(255)
+  job   String   @db.VarChar(255)
+  changedAt  DateTime @default(now())
+  changedBy  String?
+  operation  OperationType
+  version    Int
+  user       User     @relation(fields: [entity_id], references: [id], onDelete: Cascade)
+
+  @@index([entity_id])
+  @@unique([entity_id, version])
+}
+
+enum OperationType {
+  create
+  update
+  delete
+}
