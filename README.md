@@ -50,18 +50,18 @@ For running database migrations:
 
 Get VirtualEnv and run:
 
-````
+```
 $ virtualenv env
 $ source env/bin/activate
 (env) $ pip install nodeenv
 (env) $ nodeenv --version
 0.6.5
-````
+```
 
 then
 
-``nodeenv --node 22.11.0 nodeenv``
+`nodeenv --node 22.11.0 nodeenv`
 
-and 
+and
 
-``source nodeenv/bin/activate``
+`source nodeenv/bin/activate`
