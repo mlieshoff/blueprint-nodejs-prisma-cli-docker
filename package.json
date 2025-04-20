@@ -8,6 +8,7 @@
   },
   "type": "module",
   "scripts": {
+    "format": "npx prettier . --write",
     "build": "npx tsc",
     "start": "node dist/index.js",
     "generate": "npx prisma generate",
@@ -29,12 +30,17 @@
     "@prisma/client": "^6.6.0",
     "chalk": "^5.4.1",
     "commander": "^13.1.0",
-    "figlet": "^1.8.1"
+    "figlet": "^1.8.1",
+    "lodash-es": "^4.17.21",
+    "zod": "^3.24.3"
   },
   "devDependencies": {
     "@types/figlet": "^1.7.0",
+    "@types/lodash": "^4.17.16",
+    "@types/lodash-es": "^4.17.12",
     "@types/node": "^22.14.1",
     "prisma": "^6.6.0",
+    "renovate": "^39.252.0",
     "typescript": "^5.8.3"
   }
 }
