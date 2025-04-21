@@ -25,7 +25,12 @@
       "rangeStrategy": "bump"
     },
     {
-      "matchPackageNames": ["typescript", "@types/node", "@types/react", "@types/react-dom"],
+      "matchPackageNames": [
+        "typescript",
+        "@types/node",
+        "@types/react",
+        "@types/react-dom"
+      ],
       "groupName": "typescript-related packages",
       "rangeStrategy": "bump"
     }

@@ -44,7 +44,6 @@ export async function createEntityHistory<T>(
 ): Promise<void> {
   let operation: OperationType;
   const current = await adapter.getCurrent(entityId);
-  console.log("current: ", current);
   if (!current) throw new Error("Entity not found");
 
   const latestVersion = await adapter.getLatestVersion(entityId);
@@ -55,7 +54,6 @@ export async function createEntityHistory<T>(
 
   if (version > 1) {
     const previous = await adapter.getLatestSnapshot(entityId); // oder separater getLatestSnapshot()?
-    console.log("previous: ", previous);
     const previousSnapshot = adapter.pickFields(previous as T);
 
     if (isEqual(currentSnapshot, previousSnapshot)) {
