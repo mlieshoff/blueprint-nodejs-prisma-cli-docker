@@ -7,6 +7,9 @@ build:
 generate:
 	npx prisma generate
 
+create:
+	npx prisma migrate dev --name $(NAME)
+
 migrate:
 	npx prisma migrate deploy
 

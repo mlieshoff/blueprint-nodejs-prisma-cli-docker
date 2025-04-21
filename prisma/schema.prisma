@@ -13,25 +13,25 @@ model User {
   firstname String         @db.VarChar(255)
   lastname  String         @db.VarChar(255)
   job       String         @db.VarChar(255)
-  createdAt DateTime       @default(now())
-  updatedAt DateTime       @updatedAt
+  createdAt DateTime       @default(now()) @db.Timestamptz(6)
+  updatedAt DateTime       @updatedAt @db.Timestamptz(6)
   history   User_History[]
 }
 
 model User_History {
-  id         BigInt   @id @default(autoincrement())
+  id        BigInt        @id @default(autoincrement())
   entity_id BigInt
-  firstname  String   @db.VarChar(255)
-  lastname   String   @db.VarChar(255)
-  job   String   @db.VarChar(255)
-  changedAt  DateTime @default(now())
-  changedBy  String?
-  operation  OperationType
-  version    Int
-  user       User     @relation(fields: [entity_id], references: [id], onDelete: Cascade)
+  firstname String        @db.VarChar(255)
+  lastname  String        @db.VarChar(255)
+  job       String        @db.VarChar(255)
+  changedAt DateTime      @default(now()) @db.Timestamptz(6)
+  changedBy String?
+  operation OperationType
+  version   Int
+  user      User          @relation(fields: [entity_id], references: [id], onDelete: Cascade)
 
-  @@index([entity_id])
   @@unique([entity_id, version])
+  @@index([entity_id])
 }
 
 enum OperationType {

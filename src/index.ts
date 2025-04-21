@@ -3,13 +3,14 @@
 import { PrismaClient } from "@prisma/client";
 
 import chalk from "chalk";
-
 import { Command } from "commander";
 
 import figlet from "figlet";
 
 import { UserDao } from "./dao/user.js";
 import { UserDomain } from "./domain/domain.js";
+
+import mime from "mime-types";
 
 const program = new Command();
 
@@ -37,7 +38,10 @@ const userDao = new UserDao();
 const user: UserDomain = {
   firstName: "Al",
   lastName: "Bundy",
-  job: "Ritzenschieber",
+  job: "Fahrer",
 };
 
 userDao.save(user);
+
+console.log(mime.lookup("test.jpg"));
+console.log(mime.contentType("file.json"));
