@@ -1,5 +1,33 @@
 {
-  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": ["config:best-practices"],
-  "enabledManagers": ["nuget"]
+  "extends": ["config:base"],
+  "automerge": true,
+  "schedule": ["at any time"],
+  "onboarding": false,
+  "packageRules": [
+    {
+      "matchPackageNames": ["react", "react-dom"],
+      "groupName": "react packages",
+      "rangeStrategy": "bump"
+    },
+    {
+      "matchPackageNames": ["eslint", "eslint-config-next"],
+      "groupName": "eslint packages",
+      "rangeStrategy": "bump"
+    },
+    {
+      "matchPackageNames": ["next", "eslint-config-next"],
+      "groupName": "next.js packages",
+      "rangeStrategy": "bump"
+    },
+    {
+      "matchPackageNames": ["tailwindcss", "postcss", "autoprefixer"],
+      "groupName": "tailwind-related packages",
+      "rangeStrategy": "bump"
+    },
+    {
+      "matchPackageNames": ["typescript", "@types/node", "@types/react", "@types/react-dom"],
+      "groupName": "typescript-related packages",
+      "rangeStrategy": "bump"
+    }
+  ]
 }
